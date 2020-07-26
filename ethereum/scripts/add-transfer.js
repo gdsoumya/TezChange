@@ -1,9 +1,9 @@
-const config = require("../config/eth-config.json");
-const initAccount = require("./init-admin-account");
-const BCInteract = require("./bc-intereraction");
+const config = require("../../config/eth-config.json");
+const BCInteract = require("../bc-intereraction");
+const initAdminAccount = require("../init-admin-account");
 
 const Test = async (tezAcc, amtInEther) => {
-  const web3 = initAccount();
+  const web3 = initAdminAccount();
   var contractinstance = new web3.eth.Contract(config.abi, config.contractAddr);
   const data = await contractinstance.methods.transfer_tez(tezAcc).encodeABI();
   const rc = await BCInteract(

@@ -2,7 +2,7 @@ const config = require("../config/tez-config.json");
 const taquito = require("@taquito/taquito");
 
 module.exports = (rc, tez) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     taquito.Tezos.contract
       .at(config.contractAddr)
       .then((contract) => {

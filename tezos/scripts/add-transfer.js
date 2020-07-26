@@ -1,6 +1,6 @@
-const config = require("../config/tez-config.json");
+const initAdminAccount = require("../init-admin-account");
 const taquito = require("@taquito/taquito");
-const initAdminAccount = require("./init-admin-account");
+const config = require("../../config/tez-config.json");
 
 const Test = async (ethAcc, amtInTez) => {
   initAdminAccount();

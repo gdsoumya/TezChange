@@ -2,7 +2,7 @@ const config = require("../config/tez-config.json");
 const taquito = require("@taquito/taquito");
 
 module.exports = () => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     taquito.Tezos.contract
       .at(config.contractAddr)
       .then((contract) => {
@@ -12,7 +12,7 @@ module.exports = () => {
         console.log(`TEZ TX HASH :  ${op.hash}`);
         return op.confirmation(1).then(() => op.hash);
       })
-      .then((hash) => {
+      .then(() => {
         console.log("TEZOS CONTRACT LOCKED");
         return taquito.Tezos.contract
           .at(config.contractAddr)

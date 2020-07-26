@@ -2,12 +2,12 @@ const config = require("../config/eth-config.json");
 const Tx = require("ethereumjs-tx").Transaction;
 
 module.exports = async (web3, data, ether, gas, to, chain) => {
-  return new Promise(function (resolve, reject) {
+  return new Promise((resolve) => {
     try {
       web3.eth.getBlock("latest", false, (error, result) => {
         var _gasLimit = result.gasLimit;
         try {
-          web3.eth.getGasPrice(function (error, result) {
+          web3.eth.getGasPrice((error, result) => {
             var _gasPrice = result;
             try {
               const privateKey = Buffer.from(config.walletPK, "hex");

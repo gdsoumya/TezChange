@@ -1,6 +1,6 @@
-const config = require("../config/eth-config.json");
-const BCInteract = require("./bc-intereraction");
-const initAdminAccount = require("../ethereum/init-admin-account");
+const config = require("../../config/eth-config.json");
+const BCInteract = require("../bc-intereraction");
+const initAdminAccount = require("../init-admin-account");
 
 const addFunds = async (amtInEth) => {
   const web3 = initAdminAccount();

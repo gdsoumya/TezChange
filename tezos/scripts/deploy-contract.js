@@ -1,10 +1,10 @@
-const init = require("./init-admin-account");
+const initAdminAccount = require("../init-admin-account");
 const taquito = require("@taquito/taquito");
-const config = require("../config/tez-config.json");
+const config = require("../../config/tez-config.json");
 
 const DeployContract = () => {
-  init();
-  const jsonCode = require("./contract.json");
+  initAdminAccount();
+  const jsonCode = require("../../config/contract.json");
   taquito.Tezos.contract
     .originate({
       code: jsonCode,
@@ -22,7 +22,7 @@ const DeployContract = () => {
       );
       return originationOp.contract();
     })
-    .then((contract) => {
+    .then(() => {
       console.log(`Origination completed.`);
     })
     .catch((error) => console.error(`Error: ${error}`));

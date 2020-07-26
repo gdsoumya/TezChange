@@ -1,14 +1,16 @@
-const config = require("../config/tez-config.json");
+const initAdminAccount = require("../init-admin-account");
 const taquito = require("@taquito/taquito");
-const initAdminAccount = require("./init-admin-account");
+const config = require("../../config/tez-config.json");
 
-const drainFunds = () => {
+const addFunds = (amInTez) => {
   initAdminAccount();
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     taquito.Tezos.contract
       .at(config.contractAddr)
       .then((contract) => {
-        return contract.methods.drain("").send();
+        return contract.methods
+          .add_funds("")
+          .send({ amount: amInTez, tez: true });
       })
       .then((op) => {
         console.log(`TEZ TX HASH :  ${op.hash}`);
@@ -27,10 +29,10 @@ const drainFunds = () => {
   });
 };
 
-drainFunds().then((res) => {
+addFunds("1000").then((res) => {
   if (res) {
-    console.log("FUNDS DRAINED SUCCESFULLY");
+    console.log("FUNDS ADDED SUCCESFULLY");
   } else {
-    console.log("ERROR DRAINING FUNDS");
+    console.log("ERROR ADDING FUNDS");
   }
 });
