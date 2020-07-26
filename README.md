@@ -9,7 +9,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-**TezChange** requires [ **NodeJs**](https://nodejs.org/en/)
+- **TezChange** requires [ **NodeJs**](https://nodejs.org/en/)
 
 ### Getting the project.
 
