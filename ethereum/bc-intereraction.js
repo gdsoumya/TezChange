@@ -1,4 +1,4 @@
-const config = require("./config.json");
+const config = require("../config/eth-config.json");
 const Tx = require("ethereumjs-tx").Transaction;
 
 module.exports = async (web3, data, ether, gas, to, chain) => {

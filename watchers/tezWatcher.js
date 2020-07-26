@@ -1,6 +1,6 @@
 const getTezTransfers = require("../tezos/get-transfers");
 const completeTezTransfers = require("../tezos/complete-transfers");
-const gconfig = require("../global-config.json");
+const gconfig = require("../config/global-config.json");
 const payEth = require("../ethereum/pay");
 
 module.exports = async (web3) => {

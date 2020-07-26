@@ -1,4 +1,4 @@
-const config = require("./config.json");
+const config = require("../config/eth-config.json");
 const BCInteract = require("./bc-intereraction");
 
 module.exports = async (web3) => {

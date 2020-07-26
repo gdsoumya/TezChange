@@ -1,6 +1,6 @@
 const init = require("./init-admin-account");
 const taquito = require("@taquito/taquito");
-const config = require("./config.json");
+const config = require("../config/tez-config.json");
 
 const DeployContract = () => {
   init();

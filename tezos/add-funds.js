@@ -1,4 +1,4 @@
-const config = require("./config.json");
+const config = require("../config/tez-config.json");
 const taquito = require("@taquito/taquito");
 const initAdminAccount = require("./init-admin-account");
 
