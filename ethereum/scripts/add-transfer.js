@@ -17,4 +17,5 @@ const Test = async (tezAcc, amtInEther) => {
   console.log("SUCCESS : ", rc);
 };
 
+//Tezos Addr to transfer the converted crypto and amount to convert in Eth
 Test("tz1TjCVuTLE7mHRJdS8GDYhtmjTu1eAncq8e", "0.04");

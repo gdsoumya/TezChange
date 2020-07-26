@@ -21,4 +21,5 @@ const Test = async (ethAcc, amtInTez) => {
     .catch((error) => console.log(`Error: ${JSON.stringify(error, null, 2)}`));
 };
 
+//Eth Addr to transfer the converted crypto and amount to convert in Tez
 Test("0x97fCF91d8C840E5B44157664082d972eF8542476", 5);

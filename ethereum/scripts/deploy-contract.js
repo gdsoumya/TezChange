@@ -1,10 +1,11 @@
 const config = require("../../config/eth-config.json");
 const BCInteract = require("../bc-intereraction");
 const initAdminAccount = require("../init-admin-account");
+const gconfig = require("../../config/global-config.json");
 
 const Deploy = async () => {
   const web3 = initAdminAccount();
-  const fees = "10000000000000000";
+  const fees = gconfig.ethFee;
   var contractinstance = new web3.eth.Contract(config.abi);
   const data = contractinstance
     .deploy({

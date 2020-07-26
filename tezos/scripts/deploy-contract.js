@@ -1,6 +1,7 @@
 const initAdminAccount = require("../init-admin-account");
 const taquito = require("@taquito/taquito");
 const config = require("../../config/tez-config.json");
+const gconfig = require("../../config/global-config.json");
 
 const DeployContract = () => {
   initAdminAccount();
@@ -9,7 +10,7 @@ const DeployContract = () => {
     .originate({
       code: jsonCode,
       storage: {
-        fees: 1,
+        fees: gconfig.tezFee,
         cadmin: config.walletAddr,
         funds: 0,
         transfers: [],
