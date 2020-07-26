@@ -1,0 +1,30 @@
+{
+  "name": "tezchange",
+  "version": "1.0.0",
+  "description": "A watcher to convert pending eth to xtz and vice-versa ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gdsoumya/tezchange.git"
+  },
+  "keywords": [
+    "crypto",
+    "exchange"
+  ],
+  "author": "Soumya Ghosh Dastidar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gdsoumya/tezchange/issues"
+  },
+  "homepage": "https://github.com/gdsoumya/tezchange#readme",
+  "dependencies": {
+    "@taquito/signer": "^6.3.5-beta.0",
+    "@taquito/taquito": "^6.3.5-beta.0",
+    "axios": "^0.19.2",
+    "ethereumjs-tx": "^2.1.2",
+    "web3": "^1.2.11"
+  }
+}

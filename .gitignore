@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+#config
+ethereum/config.json
+tezos/config.json

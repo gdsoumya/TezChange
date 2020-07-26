@@ -1,0 +1,6 @@
+{
+  "RPC": "https://carthagenet.smartpy.io/",
+  "walletAddress": "<TEZOS_ADDR>",
+  "walletPK": "<PRIVATE_KEY>",
+  "contractAddr": "<CONTRACT_ADDR>"
+}
