@@ -18,7 +18,7 @@ const DeployContract = () => {
     })
     .then((originationOp) => {
       console.log(
-        `Waiting for confirmation of origination for ${originationOp.contractAddress}...`
+        `Confirming Contract origination : ${originationOp.contractAddress}`
       );
       return originationOp.contract();
     })
