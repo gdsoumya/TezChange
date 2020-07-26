@@ -104,5 +104,4 @@ dist
 .tern-port
 
 #config
-ethereum/config.json
-tezos/config.json
+**/config.json
