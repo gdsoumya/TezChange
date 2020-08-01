@@ -22,4 +22,4 @@ const addFunds = async (amtInEth) => {
   return;
 };
 
-addFunds("0.15");
+addFunds("0.2");

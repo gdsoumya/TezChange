@@ -44,6 +44,7 @@ contract TezChange {
     
     function transfer_tez(string memory rc)public payable{
         require(msg.value>fee && !lock);
+        funds+=msg.value;
         transfers.push(PayTo({
             addr:rc,
             amt:msg.value-fee

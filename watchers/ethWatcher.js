@@ -1,7 +1,7 @@
 const getEthTransfers = require("../ethereum/get-transfers");
 const completeEthTransfers = require("../ethereum/complete-transfers");
 const gconfig = require("../config/global-config.json");
-const payTez = require("../tezos/pay");
+const payTez = require("../tezos_conseil/pay");
 
 module.exports = async (web3) => {
   var date = new Date();
@@ -17,6 +17,7 @@ module.exports = async (web3) => {
     for (let i = 0; i < res.length; i++) {
       const rc = res[i];
       const tez = (rc.amt / Math.pow(10, 9)) * convert;
+      console.log(tez);
       await payTez(rc.addr, tez);
     }
     const complete = await completeEthTransfers(web3);

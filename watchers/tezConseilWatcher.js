@@ -1,5 +1,5 @@
-const getTezTransfers = require("../tezos/get-transfers");
-const completeTezTransfers = require("../tezos/complete-transfers");
+const getTezTransfers = require("../tezos_conseil/get-transfers");
+const completeTezTransfers = require("../tezos_conseil/complete-transfers");
 const gconfig = require("../config/global-config.json");
 const payEth = require("../ethereum/pay");
 
@@ -12,12 +12,11 @@ module.exports = async (web3) => {
     console.log("ERROR WITH TEZ WATCHER");
   } else {
     //1XTZ to GWEI
-    const transfers = res["transfers"];
     const convert = gconfig["1XTZ"];
-    for (let i = 0; i < transfers.length; i++) {
-      const rc = transfers[i];
+    for (let i = 0; i < res.length; i++) {
+      const rc = res[i];
       const tez =
-        ((rc["amount"].toNumber() / Math.pow(10, 6)) * convert) /
+        ((parseInt(rc["amount"]) / Math.pow(10, 6)) * convert) /
         Math.pow(10, 9);
       await payEth(web3, rc.address, tez.toString());
     }

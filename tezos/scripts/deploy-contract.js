@@ -5,10 +5,9 @@ const gconfig = require("../../config/global-config.json");
 
 const DeployContract = () => {
   initAdminAccount();
-  const jsonCode = require("../../config/contract.json");
   taquito.Tezos.contract
     .originate({
-      code: jsonCode,
+      code: config.contract,
       storage: {
         fees: gconfig.tezFee,
         cadmin: config.walletAddr,

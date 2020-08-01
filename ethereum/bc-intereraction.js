@@ -46,19 +46,23 @@ module.exports = async (web3, data, ether, gas, to, chain) => {
                         resolve(contract.contractAddress);
                       resolve(true);
                     })
-                    .catch(() => {
+                    .catch((error) => {
+                      console.error("ETH TX ERROR : ", error);
                       resolve(false);
                     });
                 });
             } catch (error) {
+              console.error("ETH TX ERROR : ", error);
               resolve(false);
             }
           });
         } catch (error) {
+          console.error("ETH TX ERROR : ", error);
           resolve(false);
         }
       });
     } catch (error) {
+      console.error("ETH TX ERROR : ", error);
       resolve(false);
     }
   });
