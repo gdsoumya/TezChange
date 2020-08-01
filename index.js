@@ -12,14 +12,21 @@ const StartWatch = async () => {
   var time = date.toLocaleTimeString();
   console.log(`[${time}] WATCHERS SATRTED`);
 
-  //Run every 5 min
+  let status = false; //status shows whether either of the watchers are running or not
 
+  //Run every 5 min if not already running
   setInterval(() => {
-    ethWatcher(web3);
-  }, 300000);
-
-  setInterval(() => {
-    tezWatcher(web3);
+    if (!status) {
+      status = true;
+      ethWatcher(web3)
+        .then(() => {
+          return tezWatcher(web3);
+        })
+        .then(() => {
+          console.log("\n\nONE WATCH CYCLE COMPLETE");
+          status = false;
+        });
+    }
   }, 300000);
 };
 

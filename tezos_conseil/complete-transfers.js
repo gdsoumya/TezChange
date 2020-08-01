@@ -6,14 +6,14 @@ module.exports = () => {
       .then((res) => {
         if (res.status !== "applied") {
           console.log(
-            "FAILED COMPLETE TEZ TRANSFER- ETX HASH : ",
+            "FAILED COMPLETE TEZ TRANSFER- XTZ HASH : ",
             res.operation_group_hash
           );
           console.log("STATUS : ", res.status, "\nREASON : ", res.errors);
           resolve(false);
         } else {
           console.log(
-            "CONFIRMED COMPLETE TEZ TRANSFER- ETX HASH : ",
+            "CONFIRMED COMPLETE TEZ TRANSFER- XTZ HASH : ",
             res.operation_group_hash
           );
           resolve(true);

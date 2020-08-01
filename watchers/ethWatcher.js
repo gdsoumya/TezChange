@@ -12,12 +12,10 @@ module.exports = async (web3) => {
     console.log("ERROR WITH ETH WATCHER");
   } else {
     //1GWEI to XTZ
-    console.log(res);
     const convert = 1.0 / gconfig["1XTZ"];
     for (let i = 0; i < res.length; i++) {
       const rc = res[i];
       const tez = (rc.amt / Math.pow(10, 9)) * convert;
-      console.log(tez);
       await payTez(rc.addr, tez);
     }
     const complete = await completeEthTransfers(web3);

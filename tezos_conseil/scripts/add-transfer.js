@@ -8,9 +8,9 @@ init().then(() => {
   invokeContract(amtMuTez, `(Right (Right (Right "${ethAddress}")))`)
     .then((res) => {
       if (res.status !== "applied") {
-        console.log("FAILED - ETX HASH : ", res.operation_group_hash);
+        console.log("FAILED - XTZ HASH : ", res.operation_group_hash);
         console.log("STATUS : ", res.status, "\nREASON : ", res.errors);
-      } else console.log("CONFIRMED - ETX HASH : ", res.operation_group_hash);
+      } else console.log("CONFIRMED - XTZ HASH : ", res.operation_group_hash);
     })
     .catch((err) => {
       console.error("ERROR : ", err);

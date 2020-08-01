@@ -8,14 +8,14 @@ module.exports = () =>
       .then((res) => {
         if (res.status !== "applied") {
           console.log(
-            "FAILED TO LOCK TEZ CONTRACT - ETX HASH : ",
+            "FAILED TO LOCK TEZ CONTRACT - XTZ HASH : ",
             res.operation_group_hash
           );
           console.log("STATUS : ", res.status, "\nREASON : ", res.errors);
           resolve(false);
         } else {
           console.log(
-            "LOCKED TEZ CONTRACT - ETX HASH : ",
+            "LOCKED TEZ CONTRACT - XTZ HASH : ",
             res.operation_group_hash
           );
           return conseiljs.TezosNodeReader.getContractStorage(
