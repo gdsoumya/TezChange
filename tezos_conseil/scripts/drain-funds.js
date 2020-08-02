@@ -2,7 +2,7 @@ const invokeContract = require("../util/invokeContract");
 const init = require("../init");
 
 init().then(() => {
-  invokeContract(0, `(Left (Right (Right Unit)))`, 100000)
+  invokeContract(0, `(Left (Right (Right Unit)))`)
     .then((res) => {
       if (res.status !== "applied") {
         console.log("FAILED - XTZ HASH : ", res.operation_group_hash);

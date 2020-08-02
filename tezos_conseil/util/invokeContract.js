@@ -2,45 +2,45 @@ const conseiljs = require("conseiljs");
 const config = require("../../config/tez-config.json");
 const store = require("../store");
 
-module.exports = (amtInMuTez, parameters, extraFee = 0, extraStorage = 0) => {
+module.exports = (
+  amtInMuTez,
+  parameters,
+  extraGas = 300,
+  extraStorage = 50
+) => {
   return new Promise((resolve, reject) => {
-    conseiljs.TezosConseilClient.getFeeStatistics(
-      config.conseilServer,
-      config.network,
-      conseiljs.OperationKindType.Transaction
+    const fee = 10500,
+      storage_limit = 6000,
+      gas_limit = 100000,
+      entry_point = "";
+    conseiljs.TezosNodeWriter.testContractInvocationOperation(
+      config.RPC,
+      config.chain_id,
+      store.keyStore,
+      config.contractAddr,
+      amtInMuTez,
+      fee,
+      storage_limit,
+      gas_limit,
+      entry_point,
+      parameters,
+      conseiljs.TezosParameterFormat.Michelson
     )
-      .then((res) => {
-        const fee = Number(res[0]["high"]),
-          storage_limit = 6000,
-          gas_limit = 100000,
-          entry_point = "";
-        return conseiljs.TezosNodeWriter.testContractInvocationOperation(
+      .then(({ gas, storageCost: freight }) => {
+        console.log(gas + extraGas, freight, ~~((gas + extraGas) / 10 + 300));
+        return conseiljs.TezosNodeWriter.sendContractInvocationOperation(
           config.RPC,
-          config.chain_id,
+          store.signer,
           store.keyStore,
           config.contractAddr,
           amtInMuTez,
-          fee + extraFee,
-          storage_limit + extraStorage,
-          gas_limit,
+          ~~((gas + extraGas) / 10 + 300),
+          freight + extraStorage,
+          gas + extraGas,
           entry_point,
           parameters,
           conseiljs.TezosParameterFormat.Michelson
-        ).then(({ gas, storageCost: freight }) => {
-          return conseiljs.TezosNodeWriter.sendContractInvocationOperation(
-            config.RPC,
-            store.signer,
-            store.keyStore,
-            config.contractAddr,
-            amtInMuTez,
-            fee + extraFee,
-            freight + extraStorage,
-            gas + 10000,
-            entry_point,
-            parameters,
-            conseiljs.TezosParameterFormat.Michelson
-          );
-        });
+        );
       })
       .then((result) => {
         const groupid = result["operationGroupID"]
@@ -50,7 +50,7 @@ module.exports = (amtInMuTez, parameters, extraFee = 0, extraStorage = 0) => {
           config.conseilServer,
           config.network,
           groupid,
-          1
+          2
         );
       })
       .then(resolve)

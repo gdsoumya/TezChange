@@ -2,7 +2,7 @@ const init = require("../init");
 const invokeContract = require("../util/invokeContract");
 
 const ethAddress = "0x97fCF91d8C840E5B44157664082d972eF8542476",
-  amtMuTez = 30000000;
+  amtMuTez = 5000000;
 
 init().then(() => {
   invokeContract(amtMuTez, `(Right (Right (Right "${ethAddress}")))`)

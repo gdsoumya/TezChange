@@ -28,6 +28,7 @@
     "conseiljs": "^5.0.3",
     "conseiljs-softsigner": "^5.0.3",
     "ethereumjs-tx": "^2.1.2",
+    "loglevel": "^1.6.8",
     "node-fetch": "^2.6.0",
     "web3": "^1.2.11"
   },
