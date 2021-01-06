@@ -24,7 +24,7 @@
   "dependencies": {
     "@taquito/signer": "^6.3.5-beta.0",
     "@taquito/taquito": "^6.3.5-beta.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "conseiljs": "^5.0.3",
     "conseiljs-softsigner": "^5.0.3",
     "ethereumjs-tx": "^2.1.2",
